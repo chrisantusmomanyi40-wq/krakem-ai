@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krakem AI - Educational Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px #ccc;
+        }
+        h1 {
+            color: #2563eb;
+            text-align: center;
+        }
+        select, textarea, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 120px;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #answer {
+            background: #eaf2ff;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Krakem AI</h1>
+        <p>Your educational assistant for all levels.</p>
+
+        <label>Education level:</label>
+        <select id="level">
+            <option>Primary School</option>
+            <option>Secondary School</option>
+            <option>College</option>
+            <option>University</option>
+        </select>
+
+        <label>Subject:</label>
+        <select id="subject">
+            <option>Mathematics</option>
+            <option>Science</option>
+            <option>English</option>
+            <option>History</option>
+            <option>Computer Studies</option>
+            <option>Other</option>
+        </select>
+
+        <label>Ask your question:</label>
+        <textarea id="question" placeholder="Type your educational question here..."></textarea>
+
+        <button onclick="getAnswer()">Get Answer</button>
+
+        <h3>Answer:</h3>
+        <div id="answer">Your answer will appear here.</div>
+    </div>
+
+    <script>
+        function getAnswer() {
+            const question = document.getElementById("question").value;
+            const level = document.getElementById("level").value;
+            const subject = document.getElementById("subject").value;
+
+            if (!question.trim()) {
+                document.getElementById("answer").innerText =
+                    "Please enter a question first.";
+                return;
+            }
+
+            document.getElementById("answer").innerText =
+                "Your question: " + question +
+                "\nLevel: " + level +
+                "\nSubject: " + subject +
+                "\n\nYour educational assistant is ready to be connected to AI.";
+        }
+    </script>
+</body>
+</html>
